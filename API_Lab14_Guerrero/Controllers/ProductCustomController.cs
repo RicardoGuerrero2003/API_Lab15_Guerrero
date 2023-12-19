@@ -1,5 +1,6 @@
 ﻿using API_Lab14_Guerrero.Models;
 using API_Lab14_Guerrero.Models.Requests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +30,7 @@ namespace API_Lab14_Guerrero.Controllers
             _context.SaveChanges();
         }
 
-
+        [Authorize("Vendedor")]
         [HttpPost]
         public void DeleteProduct(ProductRequestV2 request)
         {

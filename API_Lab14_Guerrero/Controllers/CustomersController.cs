@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API_Lab14_Guerrero.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API_Lab14_Guerrero.Controllers
 {
@@ -21,6 +22,7 @@ namespace API_Lab14_Guerrero.Controllers
         }
 
         // GET: api/Customers
+        [Authorize("Administrador")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
         {
